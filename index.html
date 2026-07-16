@@ -1,15 +1,619 @@
-else if(id==='cor'){let c='#'+Math.floor(Math.random()*16777215).toString(16).padStart(6,'0');r=<div style="height:80px;background:${c};border-radius:12px"></div>${c}}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9425608194654793"
+     crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="WTgT5Ds23rNVfhA_rF9K8OMdzjhJlPJp18SOVTounjo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="100 ferramentas online gratuitas com Assistente Pro inteligente para cálculos, textos, conversões, geradores e produtividade.">
+<meta name="keywords" content="ferramentas online, inteligência artificial, calculadora, conversor, gerador de senha, contador de palavras, QR Code">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:title" content="Ferramentas Pro">
+<meta property="og:description" content="100 ferramentas rápidas com assistente inteligente para ajudar você.">
+<meta property="og:type" content="website">
+<title>Ferramentas Pro — 100 ferramentas online gratuitas</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--text:#14213d;--muted:#64748b;--primary:#2563eb;--primary2:#7c3aed;--border:#dbe4f0;--shadow:0 10px 30px rgba(15,23,42,.08);--ok:#15803d;--danger:#dc2626}
+body.dark{--bg:#0f172a;--card:#182235;--text:#f8fafc;--muted:#a8b3c7;--border:#2a3952;--shadow:0 10px 30px rgba(0,0,0,.25)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);transition:.25s}
+#progress{position:fixed;left:0;top:0;height:4px;width:0;background:#fff;z-index:999}
+header{position:relative;overflow:hidden;background:linear-gradient(120deg,#2563eb,#7c3aed,#db2777,#2563eb);background-size:300% 300%;animation:gradiente 10s ease infinite;color:#fff;padding:38px 16px 34px;text-align:center}
+@keyframes gradiente{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+header h1{margin:0;font-size:clamp(31px,7vw,52px)}header p{margin:8px auto 0;max-width:760px;opacity:.95}
+.hero-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:16px}
+.hero-btn{border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.16);color:#fff;padding:10px 14px;border-radius:999px;font-weight:800;cursor:pointer}
+.topbar{max-width:1180px;margin:-20px auto 18px;padding:0 16px;display:flex;gap:10px;position:relative;z-index:2}
+.search-wrap{position:relative;flex:1}.search{width:100%;padding:15px 48px 15px 18px;border:1px solid var(--border);border-radius:17px;background:var(--card);color:var(--text);box-shadow:var(--shadow);font-size:16px}
+.clear-search{position:absolute;right:12px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:var(--muted);font-size:22px;cursor:pointer;display:none}
+.iconbtn{border:0;border-radius:16px;background:var(--card);color:var(--text);box-shadow:var(--shadow);padding:0 17px;font-size:21px;cursor:pointer}
+.wrap{max-width:1180px;margin:auto;padding:0 16px 90px}.stats,.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:16px}
+.pill,.filter{background:var(--card);border:1px solid var(--border);padding:9px 13px;border-radius:999px;color:var(--muted)}
+.pill strong{color:var(--text)}.filter{cursor:pointer;font-weight:700}.filter.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.ai-banner{margin:16px 0;padding:18px;border-radius:20px;color:#fff;background:linear-gradient(135deg,#111827,#2563eb,#7c3aed);box-shadow:var(--shadow)}
+.ai-banner h2{margin:0 0 6px}.ai-banner p{margin:0 0 12px;opacity:.9}.ai-banner button{border:0;border-radius:12px;padding:11px 15px;font-weight:800;cursor:pointer}
+.quick{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:18px 0}
+.quick-card,.popular,.history,.search-history{border:1px solid var(--border);background:var(--card);border-radius:18px;padding:15px;box-shadow:var(--shadow)}
+.quick-card h3{margin:0 0 7px}.quick-card p{margin:0;color:var(--muted);font-size:13px}.quick-card button{margin-top:11px;border:0;border-radius:11px;background:var(--primary);color:#fff;padding:9px 12px;font-weight:800;cursor:pointer}
+.ad-slot{margin:18px 0;border:1px dashed var(--border);background:var(--card);border-radius:18px;padding:18px;text-align:center;color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{position:relative;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:18px;box-shadow:var(--shadow);cursor:pointer;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#93b4f5}.fav{position:absolute;right:14px;top:12px;border:0;background:transparent;color:var(--text);font-size:26px;cursor:pointer}
+.card .emoji{font-size:34px}.card h3{margin:10px 35px 6px 0}.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.45}
+.tag,.usage{display:inline-block;margin-top:12px;padding:5px 9px;border-radius:999px;font-size:12px;font-weight:700}.tag{background:rgba(37,99,235,.1);color:var(--primary)}.usage{margin-left:8px;background:rgba(21,128,61,.1);color:var(--ok)}
+.popular,.history,.search-history{margin:22px 0}.popular-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}.popular-item,.history button,.search-history button{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:12px;cursor:pointer;color:var(--text);text-align:left}
+.history-list,.search-history-list{display:flex;gap:8px;flex-wrap:wrap}.history button,.search-history button{border-radius:999px;padding:8px 11px}
+.modal{position:fixed;inset:0;background:rgba(2,6,23,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:99}.modal.open{display:flex}
+.dialog{width:min(720px,100%);max-height:92vh;overflow:auto;background:var(--card);border-radius:22px;padding:20px;border:1px solid var(--border)}
+.dialog-head{display:flex;align-items:center;justify-content:space-between}.dialog-head h2{margin:0}.close{border:0;background:transparent;color:var(--text);font-size:30px;cursor:pointer}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+input,select,textarea,button{font:inherit}input,select,textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--bg);color:var(--text);margin-top:10px}
+textarea{min-height:120px}.btn{margin-top:12px;border:0;border-radius:12px;background:var(--primary);color:#fff;padding:12px 16px;font-weight:800;cursor:pointer}.btn.secondary{background:#475569}
+.result{margin-top:14px;padding:14px;border-radius:14px;background:var(--bg);border:1px dashed var(--border);white-space:pre-wrap;word-break:break-word;min-height:48px}.actions{display:flex;gap:8px;flex-wrap:wrap}
+.ai-fab{position:fixed;right:18px;bottom:18px;border:0;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;padding:14px 18px;border-radius:999px;font-weight:900;box-shadow:0 14px 35px rgba(37,99,235,.35);cursor:pointer;z-index:30}
+.ai-panel{position:fixed;right:14px;bottom:82px;width:min(390px,calc(100vw - 28px));height:min(610px,calc(100vh - 110px));background:var(--card);border:1px solid var(--border);border-radius:22px;box-shadow:0 25px 80px rgba(0,0,0,.28);display:none;flex-direction:column;z-index:110;overflow:hidden}.ai-panel.open{display:flex}
+.ai-head{padding:14px 16px;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;display:flex;justify-content:space-between;align-items:center}.ai-head button{border:0;background:transparent;color:#fff;font-size:26px;cursor:pointer}
+.ai-messages{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}.msg{max-width:86%;padding:10px 12px;border-radius:15px;line-height:1.4;font-size:14px}.bot{background:var(--bg);align-self:flex-start}.user{background:var(--primary);color:#fff;align-self:flex-end}
+.ai-suggestions{display:flex;gap:6px;overflow:auto;padding:0 12px 10px}.ai-suggestions button{white-space:nowrap;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:999px;padding:7px 9px;cursor:pointer;font-size:12px}
+.ai-input{display:flex;gap:8px;padding:12px;border-top:1px solid var(--border)}.ai-input input{margin:0}.ai-input button{border:0;border-radius:12px;background:var(--primary);color:#fff;padding:0 15px;font-weight:900;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:25px;transform:translateX(-50%) translateY(30px);background:#111827;color:#fff;padding:11px 16px;border-radius:999px;opacity:0;transition:.2s;z-index:150}.toast.show{opacity:1;transform:translateX(-50%)}
+footer{text-align:center;padding:24px;color:var(--muted)}
+@media(max-width:600px){.row,.row3{grid-template-columns:1fr}.dialog{padding:16px}.ai-fab{right:12px;bottom:12px}}
+
+.site-footer{background:var(--card);border-top:1px solid var(--border);padding:30px 16px 90px;text-align:center;color:var(--muted)}
+.footer-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:0 auto 14px}
+.footer-links button{border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:999px;padding:9px 12px;cursor:pointer;font-weight:700}
+.footer-note{max-width:800px;margin:0 auto;font-size:13px;line-height:1.55}
+.info-content{line-height:1.65;color:var(--text)}
+.info-content h3{margin:20px 0 6px}.info-content p,.info-content li{color:var(--muted)}
+.info-content ul{padding-left:20px}.info-date{display:inline-block;margin-bottom:12px;padding:6px 10px;border-radius:999px;background:var(--bg);color:var(--muted);font-size:12px}
+.contact-box{padding:14px;border:1px solid var(--border);border-radius:14px;background:var(--bg)}
+.cookie-banner{position:fixed;left:14px;right:14px;bottom:14px;z-index:180;display:none;max-width:920px;margin:auto;padding:16px;background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:0 25px 70px rgba(0,0,0,.3)}
+.cookie-banner.show{display:block}.cookie-banner p{margin:0;color:var(--muted);line-height:1.5;font-size:14px}
+.cookie-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.cookie-actions button{border:0;border-radius:11px;padding:10px 13px;font-weight:800;cursor:pointer}
+.cookie-accept{background:var(--primary);color:#fff}.cookie-reject{background:var(--bg);color:var(--text);border:1px solid var(--border)!important}.cookie-more{background:#475569;color:#fff}
+.trust-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:16px 0}
+.trust-item{background:var(--card);border:1px solid var(--border);border-radius:15px;padding:13px;color:var(--muted);font-size:13px}
+.trust-item strong{display:block;color:var(--text);margin-bottom:3px}
+
+
+.brand-lockup{display:flex;align-items:center;justify-content:center;gap:12px;position:relative}.brand-mark{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);font-size:30px}.brand-copy{text-align:left}.brand-copy h1{line-height:1}.brand-copy span{display:block;margin-top:6px;font-size:13px;opacity:.9;font-weight:700}.hero-metrics{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:16px}.hero-metric{padding:8px 11px;border-radius:999px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.25);font-size:12px;font-weight:800}.v11-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:18px 0}.v11-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:16px;box-shadow:var(--shadow)}.v11-card h2{margin:0 0 7px;font-size:18px}.v11-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}.v11-card button{margin-top:12px;border:0;border-radius:11px;background:var(--primary);color:#fff;padding:10px 13px;font-weight:800;cursor:pointer}.faq{margin:22px 0;background:var(--card);border:1px solid var(--border);border-radius:18px;padding:16px;box-shadow:var(--shadow)}.faq h2{margin:0 0 12px}.faq details{border-top:1px solid var(--border);padding:12px 0}.faq details:first-of-type{border-top:0}.faq summary{cursor:pointer;font-weight:800}.faq p{color:var(--muted);line-height:1.55;margin:8px 0 0}.suggestion-form{display:grid;gap:10px}.suggestion-form textarea{min-height:100px}.voice-pulse{animation:voicePulse 1s infinite}@keyframes voicePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}.ai-status{font-size:12px;opacity:.85;margin-left:6px}@media(max-width:600px){.brand-lockup{align-items:flex-start}.brand-copy h1{font-size:33px}.brand-mark{width:50px;height:50px}}
+
+
+/* Versão 12 — acabamento, acessibilidade e monetização */
+.execute-btn{width:100%;min-height:50px}
+.result.ok{border-style:solid;border-color:rgba(21,128,61,.35);background:rgba(21,128,61,.08)}
+.result.warn{border-style:solid;border-color:rgba(245,158,11,.45);background:rgba(245,158,11,.08)}
+.empty-action{margin-top:10px;border:0;border-radius:11px;background:var(--primary);color:#fff;padding:10px 13px;font-weight:800;cursor:pointer}
+#toTop{position:fixed;left:18px;bottom:18px;width:48px;height:48px;border:0;border-radius:50%;background:var(--card);color:var(--text);box-shadow:var(--shadow);font-size:22px;cursor:pointer;display:none;z-index:29}
+#toTop.show{display:block}
+.footer-badges{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:0 auto 16px}
+.footer-badge{padding:7px 10px;border-radius:999px;background:var(--bg);border:1px solid var(--border);font-size:12px;font-weight:700;color:var(--muted)}
+.ad-slot{min-height:78px;display:grid;place-items:center}
+.card:focus-visible,.filter:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid rgba(37,99,235,.35);outline-offset:2px}
+@media(max-width:600px){#toTop{left:12px;bottom:12px}.site-footer{padding-bottom:105px}.ai-fab{max-width:64vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
+
+
+/* Versão 12 — SEO, compartilhamento, avaliação e monetização */
+.growth-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:18px 0}
+.growth-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
+.growth-card h2{margin:0 0 7px;font-size:18px}.growth-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+.growth-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.growth-actions button{border:0;border-radius:11px;padding:10px 13px;font-weight:800;cursor:pointer;background:var(--primary);color:#fff}
+.rating-stars{display:flex;gap:4px;margin-top:10px}
+.rating-stars button{border:0;background:transparent;font-size:30px;padding:2px;cursor:pointer;filter:grayscale(1);opacity:.55}
+.rating-stars button.active{filter:none;opacity:1}
+.rating-note{margin-top:7px;color:var(--muted);font-size:12px}
+.ad-slot{position:relative;overflow:hidden}
+.ad-slot:before{content:"Publicidade";position:absolute;top:5px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);opacity:.7}
+.ad-slot span{display:block;margin-top:10px}
+.tool-share-bar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.tool-share-bar button{border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:999px;padding:8px 11px;cursor:pointer;font-weight:700}
+@media(max-width:600px){.growth-grid{grid-template-columns:1fr}.rating-stars button{font-size:28px}}
+
+
+/* Versão 12 — crescimento, análise e compartilhamento */
+.growth-panel{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:18px 0}
+.growth-panel .box{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
+.growth-panel h2{margin:0 0 7px;font-size:18px}
+.growth-panel p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+.growth-panel button{margin-top:12px;border:0;border-radius:11px;background:var(--primary);color:#fff;padding:10px 13px;font-weight:800;cursor:pointer}
+.share-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.share-row button{margin-top:0}
+.share-row .whatsapp{background:#16a34a}
+.share-row .telegram{background:#0284c7}
+.share-row .copy{background:#475569}
+.analytics-card{position:relative;overflow:hidden}
+.analytics-card:after{content:"Ative depois";position:absolute;right:10px;top:10px;background:var(--bg);border:1px solid var(--border);color:var(--muted);padding:5px 8px;border-radius:999px;font-size:11px;font-weight:800}
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.kpi{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:10px;text-align:center}
+.kpi strong{display:block;color:var(--text);font-size:18px}.kpi span{font-size:11px;color:var(--muted)}
+.seo-guide{margin:22px 0;background:var(--card);border:1px solid var(--border);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
+.seo-guide h2{margin:0 0 10px}.seo-guide ol{margin:0;padding-left:20px;color:var(--muted);line-height:1.65}
+.ad-slot.ready{border-style:solid;background:linear-gradient(180deg,var(--card),var(--bg))}
+@media(max-width:600px){.kpi-grid{grid-template-columns:1fr}.share-row button{flex:1}}
+
+</style>
+
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Ferramentas Pro">
+<meta name="application-name" content="Ferramentas Pro">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Ferramentas Pro">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Ferramentas Pro","inLanguage":"pt-BR","description":"Portal com 100 ferramentas online gratuitas para cálculos, textos, conversões, geradores e produtividade."}</script>
+
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232563eb'/><text x='50' y='68' text-anchor='middle' font-size='62'>🧰</text></svg>">
+<meta property="og:url" content="https://elton198810.github.io/Meu-site/">
+<meta name="twitter:title" content="Ferramentas Pro">
+<meta name="twitter:description" content="100 ferramentas online gratuitas para cálculos, textos, conversões, geradores e produtividade.">
+
+
+<link rel="canonical" href="https://elton198810.github.io/Meu-site/">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="googlebot" content="index,follow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:url" content="https://elton198810.github.io/Meu-site/">
+<meta property="og:image" content="https://elton198810.github.io/Meu-site/og-image.png">
+<meta name="twitter:image" content="https://elton198810.github.io/Meu-site/og-image.png">
+<meta name="google-site-verification" content="COLE_AQUI_O_CODIGO_DO_SEARCH_CONSOLE">
+
+</head>
+<body>
+<div id="progress"></div>
+<header>
+<div class="brand-lockup"><div class="brand-mark">🧰</div><div class="brand-copy"><h1>Ferramentas Pro</h1><span>Utilidades inteligentes para o dia a dia</span></div></div>
+<p>100 ferramentas gratuitas para cálculos, textos, conversões, geradores e produtividade.</p>
+<div class="hero-actions"><button class="hero-btn" onclick="R('busca').focus()">🔎 Encontrar ferramenta</button><button class="hero-btn" onclick="falarComIA()">🎤 Falar com a IA</button><button class="hero-btn" onclick="abrirIA()">⌨️ Digitar para a IA</button><button class="hero-btn" onclick="surpresa()">🎁 Ferramenta surpresa</button></div>
+<div class="hero-metrics"><span class="hero-metric">⚡ Uso imediato</span><span class="hero-metric">📱 Feito para celular</span><span class="hero-metric">🔒 Sem cadastro</span></div>
+</header>
+
+<div class="topbar">
+<div class="search-wrap"><input id="busca" class="search" placeholder="Pesquisar ferramenta..."><button id="limparBusca" class="clear-search">×</button></div>
+<button class="iconbtn" id="vozBtn" title="Pesquisar por voz">🎤</button><button class="iconbtn" id="favoritosBtn">⭐</button><button class="iconbtn" id="tema">🌙</button>
+</div>
+
+<main class="wrap">
+<div class="stats">
+<span class="pill"><strong id="totalFerramentas">100</strong> ferramentas</span>
+<span class="pill"><strong id="totalUsos">0</strong> usos neste aparelho</span>
+<span class="pill"><strong id="totalFavoritos">0</strong> favoritas</span>
+<span class="pill">Sem cadastro</span><span class="pill">Versão 12</span>
+</div>
+
+<section class="ai-banner">
+<h2>📈 Versão 12 — crescimento e análise</h2>
+<p>Compartilhe o portal, acompanhe o crescimento e prepare a monetização com dados reais.</p>
+<button onclick="falarComIA()">🎤 Falar com a IA</button>
+</section>
+
+<div id="filters" class="filters"></div>
+
+<section class="quick">
+<div class="quick-card"><h3>🎁 Ferramenta surpresa</h3><p>Abra uma ferramenta aleatória.</p><button onclick="surpresa()">Descobrir agora</button></div>
+<div class="quick-card"><h3>⭐ Seus favoritos</h3><p>Ficam salvos neste aparelho.</p><button onclick="mostrarFavoritos()">Ver favoritos</button></div>
+<div class="quick-card"><h3>🤖 Ajuda inteligente</h3><p>Peça algo usando linguagem normal.</p><button onclick="abrirIA()">Perguntar agora</button></div><div class="quick-card"><h3>✨ Ferramenta do dia</h3><p>Uma recomendação nova automaticamente a cada dia.</p><button onclick="ferramentaDoDia()">Abrir recomendação</button></div>
+</section>
+
+
+<section class="trust-strip" aria-label="Informações do site">
+<div class="trust-item"><strong>🔒 Privacidade</strong>As ferramentas funcionam no navegador e não exigem cadastro.</div>
+<div class="trust-item"><strong>📱 Feito para celular</strong>Interface rápida e adaptada a telas pequenas.</div>
+<div class="trust-item"><strong>🧰 100 ferramentas</strong>Cálculos, textos, conversões e produtividade em um só lugar.</div>
+</section>
+
+<div class="ad-slot ready" id="ad-topo"><span>Espaço reservado para anúncio futuro • Google AdSense</span></div>
+
+<section class="v11-grid"><div class="v11-card"><h2>✨ Ferramenta do dia</h2><p>Uma recomendação diferente todos os dias.</p><button onclick="ferramentaDoDia()">Abrir ferramenta do dia</button></div><div class="v11-card"><h2>💡 Dica do dia</h2><p id="dicaDoDia">Carregando uma dica útil...</p><button onclick="novaDica()">Mostrar outra dica</button></div><div class="v11-card"><h2>📩 Enviar sugestão</h2><p>Sentiu falta de alguma ferramenta? Envie sua ideia.</p><div class="suggestion-form"><input id="sugestaoNome" placeholder="Seu nome (opcional)"><textarea id="sugestaoTexto" placeholder="Qual ferramenta você gostaria de ver aqui?"></textarea><button onclick="enviarSugestao()">Enviar sugestão</button></div></div></section>
+
+<section class="growth-grid" aria-label="Compartilhamento e avaliação">
+<div class="growth-card">
+<h2>📱 Compartilhe o portal</h2>
+<p>Ajude outras pessoas a encontrar ferramentas gratuitas para o dia a dia.</p>
+<div class="growth-actions">
+<button onclick="compartilharSite()">Compartilhar site</button>
+<button onclick="copiarLinkSite()">Copiar link</button>
+</div>
+</div>
+<div class="growth-card">
+<h2>⭐ Avalie sua experiência</h2>
+<p>Sua avaliação fica salva apenas neste aparelho e nos ajuda a melhorar o projeto.</p>
+<div id="ratingStars" class="rating-stars" aria-label="Avaliar de 1 a 5 estrelas"></div>
+<div id="ratingNote" class="rating-note">Você ainda não avaliou.</div>
+</div>
+<div class="growth-card">
+<h2>💰 Preparação para anúncios</h2>
+<p>Os espaços publicitários já estão organizados para receber o Google AdSense depois da aprovação.</p>
+<div class="growth-actions"><button onclick="abrirPagina('privacidade')">Ver privacidade</button></div>
+</div>
+</section>
+
+
+<section class="growth-panel" aria-label="Crescimento do portal">
+<div class="box">
+<h2>📣 Compartilhar o portal</h2>
+<p>Envie o Ferramentas Pro para pessoas que precisam de cálculos, conversões e utilidades rápidas.</p>
+<div class="share-row">
+<button class="whatsapp" onclick="compartilharWhatsApp()">WhatsApp</button>
+<button class="telegram" onclick="compartilharTelegram()">Telegram</button>
+<button class="copy" onclick="copiarLinkSite()">Copiar link</button>
+</div>
+</div>
+<div class="box analytics-card">
+<h2>📊 Painel local</h2>
+<p>Estatísticas salvas neste aparelho. O Google Analytics poderá ser conectado depois com seu código.</p>
+<div class="kpi-grid">
+<div class="kpi"><strong id="kpiUsos">0</strong><span>usos</span></div>
+<div class="kpi"><strong id="kpiFavoritos">0</strong><span>favoritos</span></div>
+<div class="kpi"><strong id="kpiPesquisas">0</strong><span>pesquisas</span></div>
+</div>
+</div>
+<div class="box">
+<h2>🔍 Google Search Console</h2>
+<p>O código já está preparado. Depois vamos inserir a verificação oficial e solicitar a indexação do site.</p>
+<button onclick="abrirGuiaCrescimento()">Ver próximos passos</button>
+</div>
+</section>
+
+<section id="grid" class="grid"></section>
+<section class="popular"><h2>🏆 Ferramentas mais usadas</h2><div id="popularList" class="popular-list"></div></section>
+<section class="history"><h2>🕘 Usadas recentemente</h2><div id="historyList" class="history-list">Nenhuma ferramenta usada ainda.</div></section>
+<section class="search-history"><h2>🔎 Pesquisas recentes</h2><div id="searchHistoryList" class="search-history-list">Nenhuma pesquisa ainda.</div></section>
+
+<div class="ad-slot ready" id="ad-rodape"><span>Segundo espaço reservado para anúncio futuro</span></div>
+<section class="faq"><h2>❓ Perguntas frequentes</h2><details><summary>As ferramentas são gratuitas?</summary><p>Sim. As ferramentas podem ser usadas gratuitamente e sem cadastro.</p></details><details><summary>Os dados digitados ficam salvos?</summary><p>A maior parte dos cálculos acontece no próprio navegador. Favoritos, tema e histórico podem ser salvos localmente.</p></details><details><summary>Os resultados substituem orientação profissional?</summary><p>Não. Resultados financeiros, médicos, jurídicos, fiscais ou trabalhistas são estimativas.</p></details><details><summary>Como falar com o Assistente Pro?</summary><p>Use o botão “Falar com a IA” para ditar sua pergunta ou abra o chat para digitar.</p></details></section>
+
+<section id="guiaCrescimento" class="seo-guide">
+<h2>🚀 Próximos passos para crescer</h2>
+<ol>
+<li>Conectar o site ao Google Search Console.</li>
+<li>Enviar a página inicial para indexação.</li>
+<li>Criar uma imagem <strong>og-image.png</strong> para compartilhamento.</li>
+<li>Adicionar o código do Google Analytics quando a conta estiver criada.</li>
+<li>Solicitar o Google AdSense somente depois de conferir as páginas institucionais.</li>
+<li>Divulgar com orçamento pequeno apenas quando o site estiver monetizado.</li>
+</ol>
+</section>
+
+</main>
+
+<footer class="site-footer">
+<div class="footer-badges"><span class="footer-badge">🧰 100 ferramentas</span><span class="footer-badge">🔒 Sem cadastro</span><span class="footer-badge">📱 Otimizado para celular</span></div>
+<div class="footer-links">
+<button onclick="abrirPagina('sobre')">Sobre</button>
+<button onclick="abrirPagina('privacidade')">Privacidade</button>
+<button onclick="abrirPagina('termos')">Termos de Uso</button>
+<button onclick="abrirPagina('cookies')">Cookies</button>
+<button onclick="abrirPagina('contato')">Contato</button>
+</div>
+<p class="footer-note">© 2026 Ferramentas Pro — Versão 12. Resultados são informativos e podem ser estimativas. Confira dados importantes antes de tomar decisões.</p>
+</footer>
+<button id="toTop" title="Voltar ao topo" aria-label="Voltar ao topo">↑</button>
+<button class="ai-fab" onclick="falarComIA()">🎤 Falar com a IA</button>
+<div id="toast" class="toast">Pronto!</div>
+
+<div id="modal" class="modal"><div class="dialog">
+<div class="dialog-head"><h2 id="tituloModal">Ferramenta</h2><button class="close" onclick="fechar()">×</button></div>
+<div id="conteudoModal"></div>
+<div class="actions"><button class="btn secondary" onclick="copiarResultado()">📋 Copiar resultado</button><button class="btn secondary" onclick="compartilhar()">📱 Compartilhar</button></div>
+</div></div>
+
+
+<div id="infoModal" class="modal" aria-hidden="true">
+<div class="dialog">
+<div class="dialog-head"><h2 id="infoTitulo">Informações</h2><button class="close" onclick="fecharPagina()">×</button></div>
+<div id="infoConteudo" class="info-content"></div>
+</div>
+</div>
+
+<div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Preferências de cookies">
+<p><strong>🍪 Preferências de cookies</strong><br>O Ferramentas Pro usa armazenamento local para salvar tema, favoritos, histórico e preferências. Quando anúncios forem ativados, parceiros como o Google poderão usar cookies conforme a Política de Privacidade.</p>
+<div class="cookie-actions">
+<button class="cookie-accept" onclick="salvarCookies('aceitos')">Aceitar</button>
+<button class="cookie-reject" onclick="salvarCookies('necessarios')">Somente necessários</button>
+<button class="cookie-more" onclick="abrirPagina('cookies')">Saiba mais</button>
+</div>
+</div>
+
+<aside id="aiPanel" class="ai-panel">
+<div class="ai-head"><strong>🤖 Assistente Pro <span id="aiStatus" class="ai-status">pronto</span></strong><button onclick="fecharIA()">×</button></div>
+<div id="aiMessages" class="ai-messages"></div>
+<div class="ai-suggestions">
+<button onclick="perguntar('Quero calcular desconto')">Calcular desconto</button>
+<button onclick="perguntar('Gerar senha forte')">Gerar senha</button>
+<button onclick="perguntar('Contar palavras')">Contar palavras</button>
+<button onclick="perguntar('Converter temperatura')">Converter temperatura</button>
+</div>
+<div class="ai-input"><input id="aiInput" placeholder="Ex.: quero calcular 20% de 500"><button onclick="enviarIA()">➤</button></div>
+</aside>
+
+<script>
+const ferramentas=[
+['imc','🧍','Calculadora de IMC','Descubra seu índice de massa corporal.','Calculadoras'],
+['porcentagem','％','Calculadora de porcentagem','Calcule percentuais rapidamente.','Calculadoras'],
+['desconto','🏷️','Calculadora de desconto','Veja o preço final após o desconto.','Calculadoras'],
+['regra3','📐','Regra de três','Resolva proporções simples.','Calculadoras'],
+['juros','📈','Juros compostos','Simule crescimento do dinheiro.','Financeiro'],
+['emprestimo','💳','Simulador de empréstimo','Calcule parcelas aproximadas.','Financeiro'],
+['idade','🎂','Calculadora de idade','Calcule sua idade exata.','Datas'],
+['dias','📅','Diferença entre datas','Conte dias entre duas datas.','Datas'],
+['caracteres','🔤','Contador de caracteres','Conte letras e caracteres.','Texto'],
+['palavras','📝','Contador de palavras','Conte palavras e linhas.','Texto'],
+['maiusculas','🔠','Maiúsculas e minúsculas','Transforme seu texto.','Texto'],
+['espacos','🧹','Remover espaços extras','Limpe espaços duplicados.','Texto'],
+['ordenar','↕️','Ordenar linhas','Organize linhas em ordem alfabética.','Texto'],
+['base64','🧬','Codificador Base64','Codifique ou decodifique textos.','Desenvolvimento'],
+['url','🔗','Codificador de URL','Codifique ou decodifique URLs.','Desenvolvimento'],
+['senha','🔐','Gerador de senha','Crie senhas fortes.','Geradores'],
+['uuid','🆔','Gerador de UUID','Gere identificadores únicos.','Geradores'],
+['numero','🎲','Número aleatório','Sorteie um número.','Geradores'],
+['loteria','🍀','Números da Mega-Sena','Gere 6 números aleatórios.','Geradores'],
+['cpfgerar','🪪','Gerador de CPF','Gere CPF válido para testes.','Geradores'],
+['cpfvalidar','✅','Validador de CPF','Verifique se um CPF é válido.','Utilidades'],
+['temperatura','🌡️','Conversor de temperatura','Celsius, Fahrenheit e Kelvin.','Conversores'],
+['comprimento','📏','Conversor de comprimento','Metros, quilômetros e milhas.','Conversores'],
+['peso','⚖️','Conversor de peso','Quilos, gramas e libras.','Conversores'],
+['dados','💾','Conversor de dados','Bytes, KB, MB e GB.','Conversores'],
+['cronometro','⏱️','Cronômetro','Marque o tempo.','Tempo'],
+['temporizador','⏳','Temporizador','Crie uma contagem regressiva.','Tempo'],
+['qrcode','▦','Gerador de QR Code','Crie um QR Code para texto ou link.','Utilidades'],
+['pix','💸','Gerador de PIX','Gere código PIX Copia e Cola.','Financeiro'],
+['sorteio','🎁','Sorteador de nomes','Sorteie um nome de uma lista.','Geradores'],
+['variacao','📊','Variação percentual','Calcule aumento ou redução percentual.','Calculadoras'],
+['combustivel','⛽','Custo de combustível','Estime o custo de uma viagem.','Financeiro'],
+['ritmo','🏃','Calculadora de ritmo','Calcule o ritmo por quilômetro.','Calculadoras'],
+['hora','💼','Salário por hora','Descubra quanto você ganha por hora.','Financeiro'],
+['calorias','🔥','Estimativa de calorias','Estime seu gasto calórico diário.','Calculadoras'],
+['inverter','🔁','Inverter texto','Inverta letras e frases rapidamente.','Texto'],
+['slug','🔗','Gerador de slug','Transforme títulos em links amigáveis.','Desenvolvimento'],
+['cor','🎨','Gerador de cor','Gere uma cor hexadecimal aleatória.','Geradores'],
+['timestamp','🕰️','Conversor de timestamp','Converta data para timestamp.','Datas'],
+['formatardata','📆','Formatador de data','Formate datas no padrão brasileiro.','Datas'],
+['media','🧮','Calculadora de média','Calcule a média de vários números.','Calculadoras'],
+['proporcao','📐','Calculadora de proporção','Divida valores em uma proporção.','Calculadoras'],
+['bhaskara','➗','Equação do 2º grau','Calcule as raízes.','Calculadoras'],
+['area','📏','Área de formas','Calcule áreas geométricas.','Calculadoras'],
+['volume','📦','Volume de sólidos','Calcule volumes básicos.','Calculadoras'],
+['gorjeta','🍽️','Calculadora de gorjeta','Divida a conta e calcule a gorjeta.','Financeiro'],
+['lucro','💰','Margem de lucro','Calcule lucro e margem.','Financeiro'],
+['parcelas','🧾','Compra parcelada','Veja o valor de cada parcela.','Financeiro'],
+['economia','🐷','Meta de economia','Descubra quanto guardar por mês.','Financeiro'],
+['ferias','🏖️','Contagem para uma data','Veja quantos dias faltam.','Datas'],
+['diadasemana','🗓️','Dia da semana','Descubra o dia da semana.','Datas'],
+['somardias','➕','Somar dias à data','Adicione dias a uma data.','Datas'],
+['removeracentos','🔡','Remover acentos','Converta texto para caracteres simples.','Texto'],
+['capitalizar','Aa','Capitalizar palavras','Iniciais maiúsculas.','Texto'],
+['repetidas','🧽','Remover linhas repetidas','Elimine linhas duplicadas.','Texto'],
+['substituir','🔄','Localizar e substituir','Troque palavras em um texto.','Texto'],
+['json','{}','Formatador de JSON','Formate e valide JSON.','Desenvolvimento'],
+['html','</>','Escapar HTML','Converta caracteres especiais.','Desenvolvimento'],
+['hash','🔒','Gerador SHA-256','Crie um hash seguro.','Desenvolvimento'],
+['binario','01','Texto para binário','Converta texto em binário.','Desenvolvimento'],
+['moeda','💱','Conversor de moedas manual','Converta usando cotação informada.','Conversores'],
+['velocidade','🚗','Conversor de velocidade','Km/h, m/s e mph.','Conversores'],
+['areaConv','📐','Conversor de área','m², km², hectares e acres.','Conversores'],
+['volumeConv','🧴','Conversor de volume','Litros, ml, galões e m³.','Conversores'],
+['romano','🏛️','Número romano','Converta para algarismos romanos.','Conversores'],
+['dado','🎲','Rolar dados','Role dados virtuais.','Geradores'],
+['caraoucoroa','🪙','Cara ou coroa','Faça um sorteio rápido.','Geradores'],
+['times','⚽','Divisor de equipes','Separe nomes em equipes.','Geradores'],
+['frase','💬','Gerador de frase motivacional','Receba uma frase aleatória.','Geradores'],
+['tabuada','✖️','Gerador de tabuada','Crie a tabuada de qualquer número.','Utilidades']
+,['freelancer','🧑‍💻','Preço por projeto freelancer','Calcule um preço usando horas e valor por hora.','Financeiro']
+,['salarioliquido','💵','Estimativa de salário líquido','Estime descontos percentuais do salário.','Financeiro']
+,['horaextra','⏰','Calculadora de hora extra','Calcule o valor aproximado das horas extras.','Financeiro']
+,['comissao','🤝','Calculadora de comissão','Calcule comissão sobre vendas.','Financeiro']
+,['precovenda','🏪','Formador de preço de venda','Calcule preço usando custo e margem desejada.','Financeiro']
+,['cashback','🪙','Calculadora de cashback','Descubra quanto volta de uma compra.','Financeiro']
+,['energia','⚡','Consumo de energia','Estime o custo de um aparelho elétrico.','Financeiro']
+,['rentabilidade','📉','Rentabilidade do investimento','Calcule o retorno percentual.','Financeiro']
+,['inflacao','📊','Correção pela inflação','Atualize um valor por uma taxa informada.','Financeiro']
+,['dividirconta','🍕','Dividir conta','Divida uma conta entre várias pessoas.','Financeiro']
+,['porcentagemreversa','🔄','Porcentagem reversa','Descubra o valor original antes de um percentual.','Calculadoras']
+,['decimalbinario','🔢','Decimal para binário','Converta números decimais para binário.','Conversores']
+,['binariodecimal','0️⃣','Binário para decimal','Converta binário para número decimal.','Conversores']
+,['hexadecimal','#️⃣','Decimal para hexadecimal','Converta números para hexadecimal.','Conversores']
+,['mesesentre','🗓️','Meses entre datas','Calcule meses aproximados entre duas datas.','Datas']
+,['horasentre','🕒','Horas entre datas','Calcule a diferença em horas.','Datas']
+,['aniversario','🎉','Próximo aniversário','Veja quantos dias faltam para o aniversário.','Datas']
+,['iniciais','🔠','Gerador de iniciais','Extraia as iniciais de um nome ou frase.','Texto']
+,['embaralhar','🔀','Embaralhar texto','Misture as letras de uma palavra ou frase.','Texto']
+,['lorem','📄','Gerador de Lorem Ipsum','Gere texto de exemplo para projetos.','Geradores']
+,['quebras','↩️','Remover quebras de linha','Transforme várias linhas em um único texto.','Texto']
+,['mascaraemail','📧','Mascarar e-mail','Oculte parte de um endereço de e-mail.','Texto']
+,['listanumerada','🔢','Criar lista numerada','Numere automaticamente cada linha.','Texto']
+,['vogais','🅰️','Contador de vogais','Conte vogais e consoantes.','Texto']
+,['pin','🔐','Gerador de PIN','Gere um código numérico seguro.','Geradores']
+,['usuario','👤','Gerador de nome de usuário','Crie sugestões de nomes de usuário.','Geradores']
+,['paleta','🎨','Gerador de paleta','Gere cinco cores aleatórias.','Geradores']
+,['gradiente','🌈','Gerador de gradiente CSS','Crie um gradiente pronto para usar.','Desenvolvimento']
+,['aspecto','🖼️','Calculadora de proporção de imagem','Redimensione mantendo a proporção.','Calculadoras']
+,['densidade','📦','Calculadora de densidade','Calcule densidade usando massa e volume.','Calculadoras']
+
+];
+
+const R=id=>document.getElementById(id), semAcento=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+let categoria='Todas',somenteFavoritos=false,ferramentaAtual=null;
+let favoritos=JSON.parse(localStorage.getItem('fp_favoritos')||'[]'),usos=JSON.parse(localStorage.getItem('fp_usos')||'{}'),historico=JSON.parse(localStorage.getItem('fp_historico')||'[]'),pesquisas=JSON.parse(localStorage.getItem('fp_pesquisas')||'[]');
+function toast(m){R('toast').textContent=m;R('toast').classList.add('show');setTimeout(()=>R('toast').classList.remove('show'),1600)}
+function renderFilters(){R('filters').innerHTML=['Todas',...new Set(ferramentas.map(f=>f[4]))].map(c=>`<button class="filter ${categoria===c?'active':''}" onclick="categoria='${c}';renderFilters();render()">${c}</button>`).join('')}
+function render(){let q=semAcento(R('busca').value);R('limparBusca').style.display=q?'block':'none';let list=ferramentas.filter(f=>(categoria==='Todas'||f[4]===categoria)&&(!somenteFavoritos||favoritos.includes(f[0]))&&semAcento(f.join(' ')).includes(q));R('grid').innerHTML=list.map(f=>`<article class="card" tabindex="0" role="button" onkeydown="if(event.key==='Enter')abrir('${f[0]}')" onclick="abrir('${f[0]}')"><button class="fav" onclick="event.stopPropagation();toggleFav('${f[0]}')">${favoritos.includes(f[0])?'★':'☆'}</button><div class="emoji">${f[1]}</div><h3>${f[2]}</h3><p>${f[3]}</p><span class="tag">${f[4]}</span><span class="usage">${usos[f[0]]||0} usos</span></article>`).join('')||'<p>Nenhuma ferramenta encontrada.</p>';R('totalFavoritos').textContent=favoritos.length;R('totalUsos').textContent=Object.values(usos).reduce((a,b)=>a+b,0);atualizarPainelLocal()}
+function toggleFav(id){favoritos=favoritos.includes(id)?favoritos.filter(x=>x!==id):[...favoritos,id];localStorage.setItem('fp_favoritos',JSON.stringify(favoritos));render()}
+function mostrarFavoritos(){somenteFavoritos=true;render()}
+function surpresa(){abrir(ferramentas[Math.floor(Math.random()*ferramentas.length)][0])}
+function addHistory(id){historico=[id,...historico.filter(x=>x!==id)].slice(0,6);usos[id]=(usos[id]||0)+1;localStorage.setItem('fp_historico',JSON.stringify(historico));localStorage.setItem('fp_usos',JSON.stringify(usos));renderHistory();renderPopular();render()}
+function renderHistory(){R('historyList').innerHTML=historico.map(id=>{let f=ferramentas.find(x=>x[0]===id);return f?`<button onclick="abrir('${id}')">${f[1]} ${f[2]}</button>`:''}).join('')||'Nenhuma ferramenta usada ainda.'}
+function renderPopular(){R('popularList').innerHTML=[...ferramentas].sort((a,b)=>(usos[b[0]]||0)-(usos[a[0]]||0)).slice(0,6).map((f,i)=>`<button class="popular-item" onclick="abrir('${f[0]}')"><strong>${i+1}. ${f[1]} ${f[2]}</strong><small>${usos[f[0]]||0} usos</small></button>`).join('')}
+function renderPesquisas(){
+  if(!pesquisas.length){R('searchHistoryList').innerHTML='<span>Nenhuma pesquisa ainda.</span><button class="empty-action" onclick="R(\'busca\').focus();window.scrollTo({top:0,behavior:\'smooth\'})">Pesquisar agora</button>';return}
+  R('searchHistoryList').innerHTML=pesquisas.map(q=>`<button onclick="R('busca').value=${JSON.stringify(q)};render();window.scrollTo({top:0,behavior:'smooth'})">🔎 ${q}</button>`).join('')
+}
+R('busca').oninput=()=>render();R('busca').onchange=()=>{let q=R('busca').value.trim();if(q){pesquisas=[q,...pesquisas.filter(x=>x!==q)].slice(0,8);localStorage.setItem('fp_pesquisas',JSON.stringify(pesquisas));renderPesquisas()}}
+R('limparBusca').onclick=()=>{R('busca').value='';render()};R('favoritosBtn').onclick=()=>{somenteFavoritos=!somenteFavoritos;render()};R('tema').onclick=()=>{document.body.classList.toggle('dark');localStorage.setItem('fp_tema',document.body.classList.contains('dark')?'dark':'light')};if(localStorage.getItem('fp_tema')==='dark')document.body.classList.add('dark');
+
+const configs={
+imc:['Peso (kg)|number','Altura (m)|number'],porcentagem:['Porcentagem|number','Valor|number'],desconto:['Preço|number','Desconto %|number'],regra3:['A|number','B|number','C|number'],juros:['Capital|number','Taxa mensal %|number','Meses|number'],emprestimo:['Valor|number','Juros ao mês %|number','Parcelas|number'],idade:['Data de nascimento|date'],dias:['Data inicial|date','Data final|date'],caracteres:['Texto|textarea'],palavras:['Texto|textarea'],maiusculas:['Texto|textarea'],espacos:['Texto|textarea'],ordenar:['Linhas|textarea'],base64:['Texto|textarea'],url:['Texto ou URL|textarea'],senha:['Tamanho|number'],uuid:[],numero:['Mínimo|number','Máximo|number'],loteria:[],cpfgerar:[],cpfvalidar:['CPF|text'],temperatura:['Valor|number','De: c/f/k|text','Para: c/f/k|text'],comprimento:['Valor|number','De: m/km/mi|text','Para: m/km/mi|text'],peso:['Valor|number','De: kg/g/lb|text','Para: kg/g/lb|text'],dados:['Valor|number','De: b/kb/mb/gb|text','Para: b/kb/mb/gb|text'],cronometro:[],temporizador:['Segundos|number'],qrcode:['Texto ou link|textarea'],pix:['Chave PIX|text','Nome|text','Cidade|text','Valor|number'],sorteio:['Um nome por linha|textarea'],variacao:['Valor inicial|number','Valor final|number'],combustivel:['Distância km|number','Km por litro|number','Preço por litro|number'],ritmo:['Distância km|number','Horas|number','Minutos|number'],hora:['Salário mensal|number','Horas por semana|number'],calorias:['Peso kg|number','Altura cm|number','Idade|number'],inverter:['Texto|textarea'],slug:['Texto|textarea'],cor:[],timestamp:['Data|datetime-local'],formatardata:['Data|date'],media:['Números separados por vírgula|textarea'],proporcao:['Total|number','Parte 1|number','Parte 2|number'],bhaskara:['a|number','b|number','c|number'],area:['Base ou raio|number','Altura|number'],volume:['Lado ou raio|number','Altura|number'],gorjeta:['Conta|number','Gorjeta %|number','Pessoas|number'],lucro:['Custo|number','Venda|number'],parcelas:['Total|number','Parcelas|number'],economia:['Meta|number','Meses|number'],ferias:['Data futura|date'],diadasemana:['Data|date'],somardias:['Data|date','Dias|number'],removeracentos:['Texto|textarea'],capitalizar:['Texto|textarea'],repetidas:['Linhas|textarea'],substituir:['Texto|textarea','Localizar|text','Substituir por|text'],json:['JSON|textarea'],html:['HTML|textarea'],hash:['Texto|textarea'],binario:['Texto|textarea'],moeda:['Valor|number','Cotação|number'],velocidade:['Valor|number','De: kmh/ms/mph|text','Para: kmh/ms/mph|text'],areaConv:['Valor|number','De: m2/km2/ha/acre|text','Para: m2/km2/ha/acre|text'],volumeConv:['Valor|number','De: l/ml/gal/m3|text','Para: l/ml/gal/m3|text'],romano:['Número|number'],dado:['Quantidade|number','Lados|number'],caraoucoroa:[],times:['Um nome por linha|textarea','Número de equipes|number'],frase:[],tabuada:['Número|number'],
+freelancer:['Horas estimadas|number','Valor por hora|number','Custos adicionais|number'],
+salarioliquido:['Salário bruto|number','Descontos totais %|number'],
+horaextra:['Salário mensal|number','Horas mensais|number','Horas extras|number','Adicional %|number'],
+comissao:['Total de vendas|number','Comissão %|number'],
+precovenda:['Custo do produto|number','Margem desejada %|number'],
+cashback:['Valor da compra|number','Cashback %|number'],
+energia:['Potência em watts|number','Horas por dia|number','Dias de uso|number','Preço do kWh|number'],
+rentabilidade:['Valor inicial|number','Valor final|number'],
+inflacao:['Valor atual|number','Inflação %|number'],
+dividirconta:['Valor total|number','Número de pessoas|number'],
+porcentagemreversa:['Valor após alteração|number','Percentual %|number'],
+decimalbinario:['Número decimal|number'],
+binariodecimal:['Número binário|text'],
+hexadecimal:['Número decimal|number'],
+mesesentre:['Data inicial|date','Data final|date'],
+horasentre:['Data e hora inicial|datetime-local','Data e hora final|datetime-local'],
+aniversario:['Data de nascimento|date'],
+iniciais:['Nome ou frase|textarea'],
+embaralhar:['Texto|textarea'],
+lorem:['Número de parágrafos|number'],
+quebras:['Texto com várias linhas|textarea'],
+mascaraemail:['Endereço de e-mail|text'],
+listanumerada:['Um item por linha|textarea'],
+vogais:['Texto|textarea'],
+pin:['Quantidade de dígitos|number'],
+usuario:['Nome completo|text'],
+paleta:[],
+gradiente:[],
+aspecto:['Largura original|number','Altura original|number','Nova largura|number'],
+densidade:['Massa|number','Volume|number']
+};
+
+
+const SITE_URL='https://elton198810.github.io/Meu-site/';
+function compartilharWhatsApp(){
+  const texto='Ferramentas Pro: 100 ferramentas gratuitas para cálculos, textos, conversões e produtividade.';
+  window.open('https://wa.me/?text='+encodeURIComponent(texto+' '+SITE_URL),'_blank');
+}
+function compartilharTelegram(){
+  const texto='Ferramentas Pro: 100 ferramentas gratuitas para o dia a dia.';
+  window.open('https://t.me/share/url?url='+encodeURIComponent(SITE_URL)+'&text='+encodeURIComponent(texto),'_blank');
+}
+function abrirGuiaCrescimento(){
+  const el=R('guiaCrescimento');
+  if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function atualizarPainelLocal(){
+  const totalUsos=Object.values(usos||{}).reduce((a,b)=>a+b,0);
+  if(R('kpiUsos'))R('kpiUsos').textContent=totalUsos;
+  if(R('kpiFavoritos'))R('kpiFavoritos').textContent=(favoritos||[]).length;
+  if(R('kpiPesquisas'))R('kpiPesquisas').textContent=(pesquisas||[]).length;
+}
+function registrarEventoLocal(nome){
+  const eventos=JSON.parse(localStorage.getItem('fp_eventos')||'{}');
+  eventos[nome]=(eventos[nome]||0)+1;
+  localStorage.setItem('fp_eventos',JSON.stringify(eventos));
+}
+
+function compartilharSite(){registrarEventoLocal('compartilhar_site');
+  const data={title:'Ferramentas Pro',text:'100 ferramentas online gratuitas para cálculos, textos, conversões e produtividade.',url:'https://elton198810.github.io/Meu-site/'};
+  if(navigator.share){navigator.share(data).catch(()=>{})}
+  else{navigator.clipboard.writeText(data.url).then(()=>toast('Link do site copiado!'))}
+}
+function copiarLinkSite(){
+  navigator.clipboard.writeText('https://elton198810.github.io/Meu-site/').then(()=>toast('Link do site copiado!'));
+}
+function compartilharFerramentaAtual(){
+  if(!ferramentaAtual)return;
+  const url='https://elton198810.github.io/Meu-site/#'+ferramentaAtual[0];
+  const data={title:ferramentaAtual[2]+' — Ferramentas Pro',text:ferramentaAtual[3],url};
+  if(navigator.share){navigator.share(data).catch(()=>{})}
+  else{navigator.clipboard.writeText(url).then(()=>toast('Link da ferramenta copiado!'))}
+}
+function copiarLinkFerramenta(){
+  if(!ferramentaAtual)return;
+  navigator.clipboard.writeText('https://elton198810.github.io/Meu-site/#'+ferramentaAtual[0]).then(()=>toast('Link da ferramenta copiado!'));
+}
+function atualizarMetaFerramenta(f){
+  if(!f)return;
+  document.title=f[2]+' grátis — Ferramentas Pro';
+  const desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content',f[3]+' Use gratuitamente no Ferramentas Pro.');
+  const ogTitle=document.querySelector('meta[property="og:title"]');
+  const ogDesc=document.querySelector('meta[property="og:description"]');
+  const ogUrl=document.querySelector('meta[property="og:url"]');
+  if(ogTitle)ogTitle.setAttribute('content',f[2]+' — Ferramentas Pro');
+  if(ogDesc)ogDesc.setAttribute('content',f[3]);
+  if(ogUrl)ogUrl.setAttribute('content','https://elton198810.github.io/Meu-site/#'+f[0]);
+}
+function restaurarMeta(){
+  document.title='Ferramentas Pro — 100 ferramentas online gratuitas';
+  const desc=document.querySelector('meta[name="description"]');
+  if(desc)desc.setAttribute('content','100 ferramentas online gratuitas com Assistente Pro inteligente para cálculos, textos, conversões, geradores e produtividade.');
+}
+function renderAvaliacao(){
+  const nota=parseInt(localStorage.getItem('fp_avaliacao')||'0',10);
+  const area=R('ratingStars');
+  if(!area)return;
+  area.innerHTML=Array.from({length:5},(_,i)=>`<button class="${i<nota?'active':''}" aria-label="${i+1} estrela${i?'s':''}" onclick="salvarAvaliacao(${i+1})">⭐</button>`).join('');
+  R('ratingNote').textContent=nota?`Sua avaliação: ${nota} de 5 estrelas.`:'Você ainda não avaliou.';
+}
+function salvarAvaliacao(nota){
+  localStorage.setItem('fp_avaliacao',String(nota));
+  renderAvaliacao();atualizarPainelLocal();
+  toast('Obrigado pela avaliação!');
+}
+
+function abrir(id){registrarEventoLocal('abrir_ferramenta');let f=ferramentas.find(x=>x[0]===id);ferramentaAtual=f;atualizarMetaFerramenta(f);R('tituloModal').textContent=f[1]+' '+f[2];let fields=(configs[id]||[]).map((x,i)=>{let [p,t]=x.split('|');return t==='textarea'?`<textarea id="i${i}" placeholder="${p}"></textarea>`:`<input id="i${i}" type="${t}" placeholder="${p}">`}).join('');R('conteudoModal').innerHTML=`<div class="tool-share-bar"><button onclick="compartilharFerramentaAtual()">📱 Compartilhar ferramenta</button><button onclick="copiarLinkFerramenta()">🔗 Copiar link</button></div>`+fields+`<button class="btn execute-btn" onclick="executar('${id}')">Executar</button><div id="res" class="result"></div>`;R('modal').classList.add('open');addHistory(id)}
+function fechar(){R('modal').classList.remove('open');restaurarMeta()}
+const n=i=>parseFloat(R('i'+i)?.value)||0,s=i=>R('i'+i)?.value||'',res=(t,tipo='ok')=>{R('res').className='result '+tipo;R('res').innerHTML=t};
+function executar(id){try{
+let r='';
+if(id==='imc'){let x=n(0)/(n(1)**2);r=x?`IMC: ${x.toFixed(2)}`:'Preencha os campos.'}
+else if(id==='porcentagem')r=`${n(0)}% de ${n(1)} = ${(n(0)*n(1)/100).toFixed(2)}`;
+else if(id==='desconto')r=`Preço final: R$ ${(n(0)*(1-n(1)/100)).toFixed(2)}`;
+else if(id==='regra3')r=n(0)?`X = ${(n(1)*n(2)/n(0)).toFixed(4)}`:'A não pode ser zero.';
+else if(id==='juros'){let m=n(0)*(1+n(1)/100)**n(2);r=`Montante: R$ ${m.toFixed(2)}`;}
+else if(id==='emprestimo'){let p=n(0),i=n(1)/100,q=n(2),x=i?p*i*(1+i)**q/((1+i)**q-1):p/q;r=`Parcela: R$ ${x.toFixed(2)}`;}
+else if(id==='idade'){let d=new Date(s(0)+'T00:00:00'),h=new Date(),x=h.getFullYear()-d.getFullYear();if(h<new Date(h.getFullYear(),d.getMonth(),d.getDate()))x--;r=x+' anos'}
+else if(id==='dias')r=Math.abs(Math.round((new Date(s(1))-new Date(s(0)))/86400000))+' dias';
+else if(id==='caracteres')r=`${s(0).length} caracteres`;
+else if(id==='palavras')r=`${s(0).trim()?s(0).trim().split(/\s+/).length:0} palavras`;
+else if(id==='maiusculas')r=s(0).toUpperCase();
+else if(id==='espacos')r=s(0).replace(/\s+/g,' ').trim();
+else if(id==='ordenar')r=s(0).split('\n').sort().join('\n');
+else if(id==='base64')r=btoa(unescape(encodeURIComponent(s(0))));
+else if(id==='url')r=encodeURIComponent(s(0));
+else if(id==='senha'){let c='ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%&*',q=Math.max(8,n(0)||16);r=Array.from({length:q},()=>c[Math.floor(Math.random()*c.length)]).join('')}
+else if(id==='uuid')r=crypto.randomUUID();
+else if(id==='numero'){let a=Math.ceil(n(0)),b=Math.floor(n(1));r=Math.floor(Math.random()*(b-a+1))+a}
+else if(id==='loteria'){let x=new Set();while(x.size<6)x.add(Math.floor(Math.random()*60)+1);r=[...x].sort((a,b)=>a-b).join(' • ')}
+else if(id==='cpfgerar')r='Gerador disponível apenas para testes de software.';
+else if(id==='cpfvalidar')r=s(0).replace(/\D/g,'').length===11?'Formato com 11 dígitos.':'CPF inválido.';
+else if(['temperatura','comprimento','peso','dados','velocidade','areaConv','volumeConv'].includes(id))r=converterLocal(id,n(0),s(1),s(2));
+else if(id==='cronometro')r='Use o cronômetro do seu aparelho para precisão em segundo plano.';
+else if(id==='temporizador')r=`Temporizador configurado para ${n(0)} segundos.`;
+else if(id==='qrcode')r=`<img style="max-width:260px;width:100%" src="https://quickchart.io/qr?text=${encodeURIComponent(s(0))}&size=300">`;
+else if(id==='pix')r='Código PIX: confira os dados antes de utilizar. Chave: '+s(0);
+else if(id==='sorteio'){let a=s(0).split('\n').filter(Boolean);r=a.length?'🎉 '+a[Math.floor(Math.random()*a.length)]:'Adicione nomes.'}
+else if(id==='variacao')r=n(0)?(((n(1)-n(0))/n(0))*100).toFixed(2)+'%':'Inicial não pode ser zero.';
+else if(id==='combustivel')r=n(1)?`Custo: R$ ${((n(0)/n(1))*n(2)).toFixed(2)}`:'Preencha os campos.';
+else if(id==='ritmo'){if(!n(0)||(n(1)===0&&n(2)===0)){return res('⚠️ Informe a distância e o tempo da atividade.','warn')}let x=(n(1)*60+n(2))/n(0),m=Math.floor(x),seg=Math.round((x-m)*60);if(seg===60){m++;seg=0}r=`🏃 Seu ritmo é: ${m}:${String(seg).padStart(2,'0')} min/km`}
+else if(id==='hora')r=n(1)?`R$ ${(n(0)/(n(1)*4.33)).toFixed(2)} por hora`:'Informe as horas.';
+else if(id==='calorias')r=`Estimativa basal: ${Math.round(10*n(0)+6.25*n(1)-5*n(2)+5)} kcal/dia`;
+else if(id==='inverter')r=[...s(0)].reverse().join('');
+else if(id==='slug')r=semAcento(s(0)).trim().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+else if(id==='cor'){let c='#'+Math.floor(Math.random()*16777215).toString(16).padStart(6,'0');r=`<div style="height:80px;background:${c};border-radius:12px"></div>${c}`}
 else if(id==='timestamp')r=Math.floor(new Date(s(0)).getTime()/1000);
 else if(id==='formatardata')r=new Date(s(0)+'T00:00:00').toLocaleDateString('pt-BR');
 else if(id==='media'){let a=s(0).split(/[,\s;]+/).map(Number).filter(x=>!isNaN(x));r=(a.reduce((x,y)=>x+y,0)/a.length).toFixed(2)}
-else if(id==='proporcao'){let t=n(1)+n(2);r=Parte 1: ${(n(0)*n(1)/t).toFixed(2)}\nParte 2: ${(n(0)*n(2)/t).toFixed(2)}}
-else if(id==='bhaskara'){let d=n(1)**2-4*n(0)*n(2);r=d<0?'Sem raízes reais.':x1=${((-n(1)+Math.sqrt(d))/(2*n(0))).toFixed(3)}\nx2=${((-n(1)-Math.sqrt(d))/(2*n(0))).toFixed(3)}}
-else if(id==='area')r=Área aproximada: ${(n(0)*n(1)).toFixed(2)};
-else if(id==='volume')r=Volume aproximado: ${(n(0)*n(0)*n(1)).toFixed(2)};
-else if(id==='gorjeta'){let t=n(0)*(1+n(1)/100);r=Total: R$ ${t.toFixed(2)}\nPor pessoa: R$ ${(t/(n(2)||1)).toFixed(2)}}
-else if(id==='lucro'){let l=n(1)-n(0);r=Lucro: R$ ${l.toFixed(2)}\nMargem: ${n(1)?(l/n(1)*100).toFixed(2):0}%}
-else if(id==='parcelas')r=n(1)?${n(1)}x de R$ ${(n(0)/n(1)).toFixed(2)}:'Informe as parcelas.';
-else if(id==='economia')r=n(1)?Guarde R$ ${(n(0)/n(1)).toFixed(2)} por mês:'Informe os meses.';
+else if(id==='proporcao'){let t=n(1)+n(2);r=`Parte 1: ${(n(0)*n(1)/t).toFixed(2)}\nParte 2: ${(n(0)*n(2)/t).toFixed(2)}`}
+else if(id==='bhaskara'){let d=n(1)**2-4*n(0)*n(2);r=d<0?'Sem raízes reais.':`x1=${((-n(1)+Math.sqrt(d))/(2*n(0))).toFixed(3)}\nx2=${((-n(1)-Math.sqrt(d))/(2*n(0))).toFixed(3)}`}
+else if(id==='area')r=`Área aproximada: ${(n(0)*n(1)).toFixed(2)}`;
+else if(id==='volume')r=`Volume aproximado: ${(n(0)*n(0)*n(1)).toFixed(2)}`;
+else if(id==='gorjeta'){let t=n(0)*(1+n(1)/100);r=`Total: R$ ${t.toFixed(2)}\nPor pessoa: R$ ${(t/(n(2)||1)).toFixed(2)}`}
+else if(id==='lucro'){let l=n(1)-n(0);r=`Lucro: R$ ${l.toFixed(2)}\nMargem: ${n(1)?(l/n(1)*100).toFixed(2):0}%`}
+else if(id==='parcelas')r=n(1)?`${n(1)}x de R$ ${(n(0)/n(1)).toFixed(2)}`:'Informe as parcelas.';
+else if(id==='economia')r=n(1)?`Guarde R$ ${(n(0)/n(1)).toFixed(2)} por mês`:'Informe os meses.';
 else if(id==='ferias')r=Math.ceil((new Date(s(0))-new Date())/86400000)+' dias';
 else if(id==='diadasemana')r=new Date(s(0)+'T00:00:00').toLocaleDateString('pt-BR',{weekday:'long'});
 else if(id==='somardias'){let d=new Date(s(0)+'T00:00:00');d.setDate(d.getDate()+n(1));r=d.toLocaleDateString('pt-BR')}
@@ -21,25 +625,25 @@ else if(id==='json')r=JSON.stringify(JSON.parse(s(0)),null,2);
 else if(id==='html')r=s(0).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 else if(id==='hash')return hashTexto(s(0));
 else if(id==='binario')r=[...s(0)].map(c=>c.charCodeAt(0).toString(2).padStart(8,'0')).join(' ');
-else if(id==='moeda')r=Resultado: ${(n(0)*n(1)).toFixed(2)};
+else if(id==='moeda')r=`Resultado: ${(n(0)*n(1)).toFixed(2)}`;
 else if(id==='romano')r=romano(n(0));
-else if(id==='dado'){let a=Array.from({length:Math.max(1,n(0)1)},()=>Math.floor(Math.random()*Math.max(2,n(1)6))+1);r=a.join(' • ')}
+else if(id==='dado'){let a=Array.from({length:Math.max(1,n(0)||1)},()=>Math.floor(Math.random()*Math.max(2,n(1)||6))+1);r=a.join(' • ')}
 else if(id==='caraoucoroa')r=Math.random()<.5?'🪙 Cara':'🪙 Coroa';
-else if(id==='times'){let a=s(0).split('\n').filter(Boolean).sort(()=>Math.random()-.5),q=Math.max(2,n(1)||2),t=Array.from({length:q},()=>[]);a.forEach((x,i)=>t[i%q].push(x));r=t.map((x,i)=>Equipe ${i+1}:\n${x.join('\n')}).join('\n\n')}
+else if(id==='times'){let a=s(0).split('\n').filter(Boolean).sort(()=>Math.random()-.5),q=Math.max(2,n(1)||2),t=Array.from({length:q},()=>[]);a.forEach((x,i)=>t[i%q].push(x));r=t.map((x,i)=>`Equipe ${i+1}:\n${x.join('\n')}`).join('\n\n')}
 else if(id==='frase'){let a=['A persistência transforma pequenos passos em grandes resultados.','Comece com o que você tem.','Disciplina vence a motivação.'];r=a[Math.floor(Math.random()*a.length)]}
-else if(id==='tabuada')r=Array.from({length:10},(_,i)=>${n(0)} × ${i+1} = ${n(0)*(i+1)}).join('\n');
+else if(id==='tabuada')r=Array.from({length:10},(_,i)=>`${n(0)} × ${i+1} = ${n(0)*(i+1)}`).join('\n');
 
-else if(id==='freelancer')r=Preço sugerido: R$ ${(n(0)*n(1)+n(2)).toFixed(2)};
-else if(id==='salarioliquido')r=Salário líquido estimado: R$ ${(n(0)*(1-n(1)/100)).toFixed(2)};
-else if(id==='horaextra'){let vh=n(0)/(n(1)||220),total=vh*n(2)*(1+n(3)/100);r=Valor da hora: R$ ${vh.toFixed(2)}\nHoras extras: R$ ${total.toFixed(2)}}
-else if(id==='comissao')r=Comissão: R$ ${(n(0)*n(1)/100).toFixed(2)};
-else if(id==='precovenda')r=n(1)<100?Preço sugerido: R$ ${(n(0)/(1-n(1)/100)).toFixed(2)}:'A margem deve ser menor que 100%.';
-else if(id==='cashback')r=Você recebe: R$ ${(n(0)*n(1)/100).toFixed(2)};
-else if(id==='energia'){let kwh=n(0)/1000*n(1)*n(2);r=Consumo: ${kwh.toFixed(2)} kWh\nCusto estimado: R$ ${(kwh*n(3)).toFixed(2)}}
-else if(id==='rentabilidade')r=n(0)?Rentabilidade: ${((n(1)-n(0))/n(0)*100).toFixed(2)}%:'O valor inicial não pode ser zero.';
-else if(id==='inflacao')r=Valor corrigido: R$ ${(n(0)*(1+n(1)/100)).toFixed(2)};
-else if(id==='dividirconta')r=n(1)?Cada pessoa paga: R$ ${(n(0)/n(1)).toFixed(2)}:'Informe o número de pessoas.';
-else if(id==='porcentagemreversa')r=Valor original: ${(n(0)/(1+n(1)/100)).toFixed(2)};
+else if(id==='freelancer')r=`Preço sugerido: R$ ${(n(0)*n(1)+n(2)).toFixed(2)}`;
+else if(id==='salarioliquido')r=`Salário líquido estimado: R$ ${(n(0)*(1-n(1)/100)).toFixed(2)}`;
+else if(id==='horaextra'){let vh=n(0)/(n(1)||220),total=vh*n(2)*(1+n(3)/100);r=`Valor da hora: R$ ${vh.toFixed(2)}\nHoras extras: R$ ${total.toFixed(2)}`}
+else if(id==='comissao')r=`Comissão: R$ ${(n(0)*n(1)/100).toFixed(2)}`;
+else if(id==='precovenda')r=n(1)<100?`Preço sugerido: R$ ${(n(0)/(1-n(1)/100)).toFixed(2)}`:'A margem deve ser menor que 100%.';
+else if(id==='cashback')r=`Você recebe: R$ ${(n(0)*n(1)/100).toFixed(2)}`;
+else if(id==='energia'){let kwh=n(0)/1000*n(1)*n(2);r=`Consumo: ${kwh.toFixed(2)} kWh\nCusto estimado: R$ ${(kwh*n(3)).toFixed(2)}`}
+else if(id==='rentabilidade')r=n(0)?`Rentabilidade: ${((n(1)-n(0))/n(0)*100).toFixed(2)}%`:'O valor inicial não pode ser zero.';
+else if(id==='inflacao')r=`Valor corrigido: R$ ${(n(0)*(1+n(1)/100)).toFixed(2)}`;
+else if(id==='dividirconta')r=n(1)?`Cada pessoa paga: R$ ${(n(0)/n(1)).toFixed(2)}`:'Informe o número de pessoas.';
+else if(id==='porcentagemreversa')r=`Valor original: ${(n(0)/(1+n(1)/100)).toFixed(2)}`;
 else if(id==='decimalbinario')r=Math.floor(n(0)).toString(2);
 else if(id==='binariodecimal')r=/^[01]+$/.test(s(0))?parseInt(s(0),2):'Digite apenas 0 e 1.';
 else if(id==='hexadecimal')r='0x'+Math.floor(n(0)).toString(16).toUpperCase();
@@ -51,14 +655,14 @@ else if(id==='embaralhar')r=[...s(0)].sort(()=>Math.random()-.5).join('');
 else if(id==='lorem'){let p='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';r=Array.from({length:Math.min(20,Math.max(1,n(0)||3))},()=>p).join('\n\n')}
 else if(id==='quebras')r=s(0).replace(/\s*\n+\s*/g,' ').trim();
 else if(id==='mascaraemail'){let [a,b]=s(0).split('@');r=a&&b?(a.slice(0,2)+'***@'+b):'E-mail inválido.'}
-else if(id==='listanumerada')r=s(0).split('\n').filter(Boolean).map((x,i)=>${i+1}. ${x}).join('\n');
-else if(id==='vogais'){let t=semAcento(s(0)),v=(t.match(/[aeiou]/g)[]).length,c=(t.match(/[a-z]/g)[]).length-v;r=Vogais: ${v}\nConsoantes: ${c}}
+else if(id==='listanumerada')r=s(0).split('\n').filter(Boolean).map((x,i)=>`${i+1}. ${x}`).join('\n');
+else if(id==='vogais'){let t=semAcento(s(0)),v=(t.match(/[aeiou]/g)||[]).length,c=(t.match(/[a-z]/g)||[]).length-v;r=`Vogais: ${v}\nConsoantes: ${c}`}
 else if(id==='pin'){let q=Math.min(12,Math.max(4,n(0)||6));r=Array.from({length:q},()=>Math.floor(Math.random()*10)).join('')}
-else if(id==='usuario'){let base=semAcento(s(0)).replace(/[^a-z0-9 ]/g,'').trim().split(/\s+/);let a=base[0]'usuario',b=base.at(-1)'';r=[a+b,a+'.'+b,a+'_'+Math.floor(Math.random()*9999),b+a].filter(Boolean).join('\n')}
-else if(id==='paleta'){let cores=Array.from({length:5},()=>('#'+Math.floor(Math.random()*16777215).toString(16).padStart(6,'0')));r=cores.map(c=><span style="display:inline-block;width:52px;height:52px;background:${c};border-radius:10px;margin:4px"></span>${c}).join('<br>')}
-else if(id==='gradiente'){let a='#'+Math.floor(Math.random()*16777215).toString(16).padStart(6,'0'),b='#'+Math.floor(Math.random()*16777215).toString(16).padStart(6,'0');r=<div style="height:100px;border-radius:12px;background:linear-gradient(135deg,${a},${b})"></div>\nbackground: linear-gradient(135deg, ${a}, ${b});}
-else if(id==='aspecto')r=n(0)&&n(1)?Nova altura: ${(n(2)*n(1)/n(0)).toFixed(0)} px:'Preencha as dimensões.';
-else if(id==='densidade')r=n(1)?Densidade: ${(n(0)/n(1)).toFixed(4)}:'O volume não pode ser zero.';
+else if(id==='usuario'){let base=semAcento(s(0)).replace(/[^a-z0-9 ]/g,'').trim().split(/\s+/);let a=base[0]||'usuario',b=base.at(-1)||'';r=[a+b,a+'.'+b,a+'_'+Math.floor(Math.random()*9999),b+a].filter(Boolean).join('\n')}
+else if(id==='paleta'){let cores=Array.from({length:5},()=>('#'+Math.floor(Math.random()*16777215).toString(16).padStart(6,'0')));r=cores.map(c=>`<span style="display:inline-block;width:52px;height:52px;background:${c};border-radius:10px;margin:4px"></span>${c}`).join('<br>')}
+else if(id==='gradiente'){let a='#'+Math.floor(Math.random()*16777215).toString(16).padStart(6,'0'),b='#'+Math.floor(Math.random()*16777215).toString(16).padStart(6,'0');r=`<div style="height:100px;border-radius:12px;background:linear-gradient(135deg,${a},${b})"></div>\nbackground: linear-gradient(135deg, ${a}, ${b});`}
+else if(id==='aspecto')r=n(0)&&n(1)?`Nova altura: ${(n(2)*n(1)/n(0)).toFixed(0)} px`:'Preencha as dimensões.';
+else if(id==='densidade')r=n(1)?`Densidade: ${(n(0)/n(1)).toFixed(4)}`:'O volume não pode ser zero.';
 
 res(r)}catch(e){res('Não foi possível calcular. Confira os dados.')}
 }
@@ -66,26 +670,25 @@ function converterLocal(id,v,de,para){de=de.toLowerCase();para=para.toLowerCase(
 async function hashTexto(t){let b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));res([...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join(''))}
 function romano(n){let a=[['M',1000],['CM',900],['D',500],['CD',400],['C',100],['XC',90],['L',50],['XL',40],['X',10],['IX',9],['V',5],['IV',4],['I',1]],r='';for(let [s,v] of a)while(n>=v){r+=s;n-=v}return r||'Use número maior que zero.'}
 function copiarResultado(){navigator.clipboard.writeText(R('res')?.innerText||'').then(()=>toast('Resultado copiado!'))}
-function compartilhar(){let t=(ferramentaAtual?.[2]'Ferramentas Pro')+': '+(R('res')?.innerText'');navigator.share?navigator.share({title:'Ferramentas Pro',text:t,url:location.href}):window.open('https://wa.me/?text='+encodeURIComponent(t+' '+location.href))}
+function compartilhar(){let t=(ferramentaAtual?.[2]||'Ferramentas Pro')+': '+(R('res')?.innerText||'');navigator.share?navigator.share({title:'Ferramentas Pro',text:t,url:location.href}):window.open('https://wa.me/?text='+encodeURIComponent(t+' '+location.href))}
 
 
 const dicasV11=['Use os favoritos para deixar as ferramentas importantes sempre à mão.','A busca aceita palavras como desconto, senha, PIX e texto.','Você pode falar com a IA e pedir um cálculo de porcentagem.','A Ferramenta do Dia muda automaticamente todos os dias.','O modo escuro pode deixar a leitura mais confortável.'];
 function novaDica(){if(R('dicaDoDia'))R('dicaDoDia').textContent=dicasV11[Math.floor(Math.random()*dicasV11.length)]}
-function enviarSugestao(){const nome=R('sugestaoNome').value.trim(),texto=R('sugestaoTexto').value.trim();if(!texto){toast('Escreva sua sugestão.');return}window.location.href=mailto:edxcervice@gmail.com?subject=${encodeURIComponent('Sugestão para o Ferramentas Pro')}&body=${encodeURIComponent('Nome: '+(nome||'Não informado')+'\n\nSugestão:\n'+texto)}}
+function enviarSugestao(){const nome=R('sugestaoNome').value.trim(),texto=R('sugestaoTexto').value.trim();if(!texto){toast('Escreva sua sugestão.');return}window.location.href=`mailto:edxcervice@gmail.com?subject=${encodeURIComponent('Sugestão para o Ferramentas Pro')}&body=${encodeURIComponent('Nome: '+(nome||'Não informado')+'\n\nSugestão:\n'+texto)}`}
 function falarComIA(){abrirIA();const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){R('aiStatus').textContent='digite sua pergunta';R('aiInput').focus();toast('Seu navegador não liberou voz. Digite no chat.');return}const rec=new SR();rec.lang='pt-BR';rec.interimResults=false;R('aiStatus').textContent='ouvindo...';const fab=document.querySelector('.ai-fab');if(fab)fab.classList.add('voice-pulse');rec.onresult=e=>{R('aiStatus').textContent='processando...';perguntar(e.results[0][0].transcript)};rec.onerror=()=>{R('aiStatus').textContent='não consegui ouvir';toast('Não foi possível ouvir. Tente novamente ou digite.')};rec.onend=()=>{if(fab)fab.classList.remove('voice-pulse');setTimeout(()=>{if(R('aiStatus'))R('aiStatus').textContent='pronto'},700)};rec.start()}
 
 function abrirIA(){registrarEventoLocal('abrir_ia');R('aiPanel').classList.add('open');if(!R('aiMessages').children.length)addBot('Olá! Diga o que você precisa. Exemplo: “calcular 20% de 500” ou “quero gerar uma senha”.')}
 function fecharIA(){R('aiPanel').classList.remove('open')}
-function addBot(t,botao){let d=document.createElement('div');d.className='msg bot';d.innerHTML=t+(botao?<br><button class="btn" onclick="abrir('${botao}')">Abrir ferramenta</button>:'');R('aiMessages').appendChild(d);R('aiMessages').scrollTop=9999}
+function addBot(t,botao){let d=document.createElement('div');d.className='msg bot';d.innerHTML=t+(botao?`<br><button class="btn" onclick="abrir('${botao}')">Abrir ferramenta</button>`:'');R('aiMessages').appendChild(d);R('aiMessages').scrollTop=9999}
 function addUser(t){let d=document.createElement('div');d.className='msg user';d.textContent=t;R('aiMessages').appendChild(d)}
 function enviarIA(){let q=R('aiInput').value.trim();if(!q)return;R('aiInput').value='';perguntar(q)}
 function perguntar(q){abrirIA();addUser(q);let t=semAcento(q).replace(/\bpor cento\b|\bcento\b/g,'%'),nums=(t.match(/-?\d+(?:[.,]\d+)?/g)||[]).map(x=>parseFloat(x.replace(',','.')));
-if((t.includes('%')||t.includes('porcent'))&&nums.length>=2){let p=nums[0],v=nums[1],resultado=p*v/100;addBot(✅ <strong>${p}% de ${v} é ${resultado.toFixed(2)}</strong>.<br>Você também pode abrir a calculadora para testar outros valores.,'porcentagem');return}
-if(t.includes('desconto')&&nums.length>=2){addBot(Com ${nums[1]}% de desconto, o valor fica <strong>R$ ${(nums[0]*(1-nums[1]/100)).toFixed(2)}</strong>.,'desconto');return}
-let aliases={senha:'senha',password:'senha',imc:'imc',peso:'peso',temperatura:'temperatura',febre:'temperatura',palavra:'palavras',caracter:'caracteres',qr:'qrcode',pix:'pix',emprestimo:'emprestimo',juros:'juros',idade:'idade',data:'dias',sorteio:'sorteio',nome:'sorteio',tabuada:'tabuada',lucro:'lucro',parcela:'parcelas',gorjeta:'gorjeta',combustivel:'combustivel',cpf:'cpfvalidar',texto:'maiusculas',json:'json',base64:'base64',moeda:'moeda',dado:'dado',equipe:'times',freelancer:'freelancer
-,salario:'salarioliquido',comissao:'comissao',cashback:'cashback',energia:'energia',inflacao:'inflacao',binario:'decimalbinario',hexadecimal:'hexadecimal',aniversario:'aniversario',iniciais:'iniciais',email:'mascaraemail',pin:'pin',usuario:'usuario',paleta:'paleta',gradiente:'gradiente'};
-let id=Object.keys(aliases).find(k=>t.includes(k));if(id){let f=ferramentas.find(x=>x[0]===aliases[id]);addBot(A melhor opção é <strong>${f[2]}</strong>.,f[0]);return}
-let f=ferramentas.map(x=>({f:x,score:semAcento(x.join(' ')).split(' ').filter(w=>t.includes(w)&&w.length>3).length})).sort((a,b)=>b.score-a.score)[0];if(f.score)addBot(Encontrei uma opção: <strong>${f.f[2]}</strong>.,f.f[0]);else addBot('Ainda não entendi. Tente escrever o objetivo com palavras como desconto, senha, IMC, texto, data, PIX ou conversão.')}
+if((t.includes('%')||t.includes('porcent'))&&nums.length>=2){let p=nums[0],v=nums[1],resultado=p*v/100;addBot(`✅ <strong>${p}% de ${v} é ${resultado.toFixed(2)}</strong>.<br>Você também pode abrir a calculadora para testar outros valores.`,'porcentagem');return}
+if(t.includes('desconto')&&nums.length>=2){addBot(`Com ${nums[1]}% de desconto, o valor fica <strong>R$ ${(nums[0]*(1-nums[1]/100)).toFixed(2)}</strong>.`,'desconto');return}
+let aliases={senha:'senha',password:'senha',imc:'imc',peso:'peso',temperatura:'temperatura',febre:'temperatura',palavra:'palavras',caracter:'caracteres',qr:'qrcode',pix:'pix',emprestimo:'emprestimo',juros:'juros',idade:'idade',data:'dias',sorteio:'sorteio',nome:'sorteio',tabuada:'tabuada',lucro:'lucro',parcela:'parcelas',gorjeta:'gorjeta',combustivel:'combustivel',cpf:'cpfvalidar',texto:'maiusculas',json:'json',base64:'base64',moeda:'moeda',dado:'dado',equipe:'times',freelancer:'freelancer',salario:'salarioliquido',comissao:'comissao',cashback:'cashback',energia:'energia',inflacao:'inflacao',binario:'decimalbinario',hexadecimal:'hexadecimal',aniversario:'aniversario',iniciais:'iniciais',email:'mascaraemail',pin:'pin',usuario:'usuario',paleta:'paleta',gradiente:'gradiente'};
+let id=Object.keys(aliases).find(k=>t.includes(k));if(id){let f=ferramentas.find(x=>x[0]===aliases[id]);addBot(`A melhor opção é <strong>${f[2]}</strong>.`,f[0]);return}
+let f=ferramentas.map(x=>({f:x,score:semAcento(x.join(' ')).split(' ').filter(w=>t.includes(w)&&w.length>3).length})).sort((a,b)=>b.score-a.score)[0];if(f.score)addBot(`Encontrei uma opção: <strong>${f.f[2]}</strong>.`,f.f[0]);else addBot('Ainda não entendi. Tente escrever o objetivo com palavras como desconto, senha, IMC, texto, data, PIX ou conversão.')}
 R('aiInput').addEventListener('keydown',e=>{if(e.key==='Enter')enviarIA()});
 
 function ferramentaDoDia(){
@@ -112,12 +715,12 @@ window.addEventListener('scroll',()=>{let d=document.documentElement,max=d.scrol
 const paginasInstitucionais={
 sobre:{
 titulo:'Sobre o Ferramentas Pro',
-conteudo:<span class="info-date">Atualizado em julho de 2026</span>
+conteudo:`<span class="info-date">Atualizado em julho de 2026</span>
 <p>O <strong>Ferramentas Pro</strong> é um portal brasileiro criado para reunir ferramentas digitais simples, rápidas e gratuitas. O objetivo é ajudar pessoas em tarefas do dia a dia, como cálculos, conversões, edição de textos, sorteios e produtividade.</p>
 <h3>Como funciona</h3>
 <p>A maior parte dos cálculos é executada diretamente no navegador do visitante. Não é necessário criar conta para usar as ferramentas.</p>
 <h3>Nosso compromisso</h3>
-<ul><li>Manter uma experiência simples e compatível com celulares.</li><li>Explicar claramente as limitações dos resultados.</li><li>Melhorar as ferramentas de forma contínua.</li></ul>
+<ul><li>Manter uma experiência simples e compatível com celulares.</li><li>Explicar claramente as limitações dos resultados.</li><li>Melhorar as ferramentas de forma contínua.</li></ul>`
 },
 privacidade:{
 titulo:'Política de Privacidade',
@@ -132,11 +735,11 @@ conteudo:`<span class="info-date">Atualizada em julho de 2026</span>
 <h3>Serviços externos</h3>
 <p>O site é hospedado no GitHub Pages. Serviços de hospedagem, análise e publicidade podem registrar informações técnicas, como endereço IP, navegador, dispositivo, data e horário de acesso, de acordo com suas próprias políticas.</p>
 <h3>Direitos e contato</h3>
-<p>Solicitações relacionadas à privacidade poderão ser encaminhadas pelo canal de contato informado na página “Contato”.</p>
+<p>Solicitações relacionadas à privacidade poderão ser encaminhadas pelo canal de contato informado na página “Contato”.</p>`
 },
 termos:{
 titulo:'Termos de Uso',
-conteudo:<span class="info-date">Atualizados em julho de 2026</span>
+conteudo:`<span class="info-date">Atualizados em julho de 2026</span>
 <p>Ao usar o Ferramentas Pro, o visitante concorda com estes termos.</p>
 <h3>Uso das ferramentas</h3>
 <p>As ferramentas são oferecidas gratuitamente para fins informativos e de produtividade. O visitante é responsável por conferir os dados inseridos e os resultados gerados.</p>
@@ -145,20 +748,20 @@ conteudo:<span class="info-date">Atualizados em julho de 2026</span>
 <h3>Uso responsável</h3>
 <p>Não é permitido utilizar o site para atividades ilegais, fraude, invasão, abuso ou violação de direitos de terceiros.</p>
 <h3>Alterações</h3>
-<p>As ferramentas e estes termos poderão ser atualizados para melhorar o serviço ou cumprir exigências legais e de plataformas parceiras.</p>
+<p>As ferramentas e estes termos poderão ser atualizados para melhorar o serviço ou cumprir exigências legais e de plataformas parceiras.</p>`
 },
 cookies:{
 titulo:'Política de Cookies',
-conteudo:<span class="info-date">Atualizada em julho de 2026</span>
+conteudo:`<span class="info-date">Atualizada em julho de 2026</span>
 <p>Cookies e tecnologias semelhantes ajudam sites a lembrar preferências, medir desempenho e exibir publicidade.</p>
 <h3>Armazenamento necessário e funcional</h3>
 <p>O Ferramentas Pro utiliza armazenamento local para guardar tema, favoritos, histórico, pesquisas e a escolha sobre cookies. Essas funções permitem que o site mantenha preferências no aparelho.</p>
 <h3>Cookies de publicidade e medição</h3>
 <p>Quando Google AdSense, Google Analytics ou serviços semelhantes forem ativados, esses parceiros poderão utilizar cookies e identificadores para medir acessos, combater fraude e exibir anúncios. A ativação desses serviços será feita de acordo com as configurações de consentimento aplicáveis.</p>
 <h3>Como controlar</h3>
-<p>O visitante pode escolher “Somente necessários” no aviso do site e também apagar ou bloquear cookies pelas configurações do navegador. O bloqueio pode limitar algumas funções.</p>
+<p>O visitante pode escolher “Somente necessários” no aviso do site e também apagar ou bloquear cookies pelas configurações do navegador. O bloqueio pode limitar algumas funções.</p>`
 },
-contato:{titulo:'Contato',conteudo:<span class="info-date">Ferramentas Pro</span><div class="contact-box"><p><strong>E-mail de atendimento</strong><br><a href="mailto:edxcervice@gmail.com">edxcervice@gmail.com</a></p><p><strong>Endereço</strong><br>Rua Olavo Firmino da Silva, nº 06</p><p>Use este canal para dúvidas, correções, solicitações de privacidade e sugestões relacionadas ao portal.</p></div>`}
+contato:{titulo:'Contato',conteudo:`<span class="info-date">Ferramentas Pro</span><div class="contact-box"><p><strong>E-mail de atendimento</strong><br><a href="mailto:edxcervice@gmail.com">edxcervice@gmail.com</a></p><p><strong>Endereço</strong><br>Rua Olavo Firmino da Silva, nº 06</p><p>Use este canal para dúvidas, correções, solicitações de privacidade e sugestões relacionadas ao portal.</p></div>`}
 };
 function abrirPagina(id){
   const pagina=paginasInstitucionais[id];
@@ -184,6 +787,7 @@ function iniciarCookies(){
 
 R('totalFerramentas').textContent=ferramentas.length;renderFilters();render();renderHistory();renderPopular();renderPesquisas();iniciarCookies();novaDica();renderAvaliacao();atualizarPainelLocal();
 </script>
+
 <!-- GOOGLE ANALYTICS:
 Quando você criar sua propriedade, substitua G-XXXXXXXXXX pelo seu ID e remova os comentários.
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
